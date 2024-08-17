@@ -1,0 +1,18 @@
+<script setup>
+import Home from '@/Pages/Home.vue';
+import CarruselImage from '@/Components/CarruselImage.vue';
+import ListadoTabla from '@/Components/ListadoTabla.vue';
+</script>
+
+<template>
+    <Home>
+        <div class="py-2">
+            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                <CarruselImage/>
+            </div>
+            <div class="max-w-5xl mx-auto mt-10">
+                <ListadoTabla/>
+            </div>
+        </div>
+    </Home>
+</template>
