@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('encabezado',500);
             $table->text('cuerpo');
             $table->date('fecha');
+            $table->string('foto',500);
             $table->timestamps();
         });
     }

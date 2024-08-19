@@ -49,7 +49,7 @@ const items = ref([
     },
     {
         label: 'Noticias',
-        route: 'noticia'
+        route: 'noticias'
     },
     {
         label: 'Contacto',
@@ -57,7 +57,7 @@ const items = ref([
     },
     {
         label: 'Digesto',
-        route: 'digesto'
+        route: 'digestos'
     },
 ]);
 
@@ -215,10 +215,19 @@ const showingNavigationDropdown = ref(false);
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                       <!--  <ResponsiveNavLink v-for="menu in opcionesMenus" :key="menu.id" :href="route(menu.url)" :active="route().current(menu.url)">
-                           <span class="text-ms">{{ menu.name }}</span>
-                        </ResponsiveNavLink> -->
-
+                        <Menubar :model="items" style="border: none !important;">
+                                    <template #item="{ item, props, hasSubmenu }">
+                                        <NavLink :active="route().current(item.route)" v-if="item.route" v-slot="{ href, navigate }" :href="route(item.route)">
+                                            <a v-ripple :href="item.route" v-bind="props.action" @click="navigate">
+                                                <span class="ml-2 text-sky-500 font-sans">{{ item.label }}</span>
+                                            </a>
+                                        </NavLink>
+                                        <a v-else v-ripple :href="item.route" :target="item.target" v-bind="props.action">
+                                            <span class="ml-2 text-sky-500 font-sans">{{ item.label }}</span>
+                                            <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down ml-2" />
+                                        </a>
+                                    </template>
+                                </Menubar>
                     </div>
 
                 </div>

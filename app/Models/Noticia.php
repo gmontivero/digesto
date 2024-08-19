@@ -9,7 +9,7 @@ class Noticia extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo','encabezado','cuerpo','fecha'];
+    protected $fillable = ['titulo','encabezado','cuerpo','fecha','foto'];
 
     public function imagens(){
         return $this->belongsToMany(Imagen::class,'imagen_noticia');

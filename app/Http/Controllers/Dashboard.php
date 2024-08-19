@@ -31,12 +31,9 @@ class Dashboard extends Controller
         return Inertia::render('bloques');
     }
 
-    public function digesto(){
-        return Inertia::render('digesto');
-    }
 
-    public function noticia(){
-        return Inertia::render('noticia');
+    public function noticias(){
+        return Inertia::render('noticias');
     }
 
     public function contacto(){
