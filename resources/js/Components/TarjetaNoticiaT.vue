@@ -6,7 +6,7 @@ import NavLink from '@/Components/NavLink.vue';
     <div class="flex flex-col items-center  mt-3">
         <span class="w-full text-gray-600 text-right -mb-1">20/08/2024</span>
         <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
-            <img src="/img/noticia56.jpeg" alt="Mountain" class="">
+            <img src="img/noticia56.jpeg" alt="Mountain" class="">
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-gray-800 mb-2">
                     Analizan anteproyecto de ley para abordar el problema de las apuestas online en menores

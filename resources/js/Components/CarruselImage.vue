@@ -12,8 +12,8 @@
   <script setup>
 
 const imagenes = [
-    {src: "/img/diajovenes.jpg"},
-    {src: "/img/diainfancia24.jpg"},
-    {src: "/img/licenciaconducir.jpg"},
+    {src: "img/diajovenes.jpg"},
+    {src: "img/diainfancia24.jpg"},
+    {src: "img/licenciaconducir.jpg"},
 ]
   </script>

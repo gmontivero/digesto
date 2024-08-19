@@ -5,14 +5,14 @@
       titulo: 'Decreto Nº 921',
       resumen: 'Declárase "CIUDADANA DESTACADA, DISTINCIÓN CIUDAD DE LOS AZAHARES" a la Sra. Emma Olaya de la Fuente de Sisterna, en reconocimiento a su amor por la vida, por demostrar a la sociedad que siempre se puede más',
       fecha: '01/07/2024',
-      pdf: '/pdf/dispensa1.pdf',
+      pdf: 'pdf/dispensa1.pdf',
     },
     {
         numero: '920/2024',
       titulo: 'Decreto Nº 920',
       resumen: 'Declárase "INSTITUCION DESTACADA DE LA CIUDAD DE LA RIOJA, DISTINCIÓN CIUDAD DE LOS AZAHARES" a la FUNDACION PADRE ENRI PRAOLINI en reconocimiento a su destacada tarea social y comunitaria desarrollada en zonas de alta vulnerabilidad social.',
       fecha: '01/06/2024',
-      pdf: '/pdf/dispensa6.pdf',
+      pdf: 'pdf/dispensa6.pdf',
     }
   ]
 

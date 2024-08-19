@@ -14,7 +14,7 @@ import CardContact from '@/Components/CardContact.vue';
             </div>
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                <h2 class="text-2xl font-serif mt-5 mb-1 font-extrabold">Ultimas Noticias</h2>
-               <div class="flex space-x-8 justify-center">
+               <div class="space-x-8 justify-center grid lg:grid-cols-2 lg:gap-2 sm:grid-cols-1 sm:gap-1">
                     <TarjetaNoticiaT>
 
                     </TarjetaNoticiaT>

@@ -51,7 +51,7 @@ const noticias = [
                 <CarruselImage/>
             </div>
             <div class="max-w-6xl mx-auto ">
-                <div class="grid grid-cols-3 gap-3 ">
+                <div class="grid lg:grid-cols-3 lg:gap-3 sm:grid-cols-2 sm:gap-2">
                     <div v-for="noticia in noticias" :key="noticia.id">
                         <TarjetaNoticiaT/>
                     </div>
