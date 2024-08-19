@@ -43,4 +43,8 @@ class Dashboard extends Controller
     public function noticiadetalle(){
         return Inertia::render('noticiaDetalle');
     }
+
+    public function digestos(){
+        return Inertia::render('digesto');
+    }
 }

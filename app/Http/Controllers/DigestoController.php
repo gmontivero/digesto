@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Digesto;
 use Illuminate\Http\Request;
+use App\Http\Requests\DigestoRequest;
+use App\Models\Tipo;
+use Illuminate\Support\Facades\Storage;
 
 class DigestoController extends Controller
 {
@@ -11,7 +15,8 @@ class DigestoController extends Controller
      */
     public function index()
     {
-        //
+        $digestos = Digesto::paginate(2);
+        return inertia('Digestos/Index', ['digestos' => $digestos]);
     }
 
     /**
@@ -19,15 +24,23 @@ class DigestoController extends Controller
      */
     public function create()
     {
-        //
+        $tipos = Tipo::all();
+        return inertia('Digestos/Create',['tipos' => $tipos]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DigestoRequest $request)
     {
-        //
+        $fields = $request->validated();
+        if ($request->hasFile('pdf')){
+            $fields['pdf'] = Storage::disk('public')->put('digestos',$request->pdf);
+        }
+
+        Digesto::create($fields);
+
+        return redirect()->route('digesto.index');
     }
 
     /**
@@ -41,17 +54,21 @@ class DigestoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(String $id)
     {
-        //
+        $digesto = Digesto::find($id);
+        $tipos = Tipo::all();
+        return inertia('Digestos/Edit',['digesto' => $digesto, 'tipos' => $tipos]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(DigestoRequest $request, string $id)
     {
-        //
+        $digesto = Digesto::find($id);
+        $digesto->update($request->validated());
+        return redirect()->route('digesto.index');
     }
 
     /**
@@ -59,6 +76,8 @@ class DigestoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $digesto = Digesto::find($id);
+        $digesto->delete();
+        return redirect()->route('digesto.index');
     }
 }
