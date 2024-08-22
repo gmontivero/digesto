@@ -1,11 +1,14 @@
 <?php
 
+use Inertia\Inertia;
 use App\Http\Controllers\Dashboard;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\DigestoController;
 use App\Http\Controllers\NoticiaController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+
+
 
 Route::get('/', [Dashboard::class,'inicio'])->name('inicio');
 Route::get('/bloques', [Dashboard::class,'bloques'])->name('bloques');
@@ -32,4 +35,29 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('/noticia',NoticiaController::class);
     Route::resource('/digesto',DigestoController::class);
+});
+
+
+// Clear application cache:
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return 'Application cache has been cleared';
+});
+
+//Clear route cache:
+Route::get('/route-cache', function() {
+	Artisan::call('route:cache');
+    return 'Routes cache has been cleared';
+});
+
+//Clear config cache:
+Route::get('/config-cache', function() {
+ 	Artisan::call('config:cache');
+ 	return 'Config cache has been cleared';
+});
+
+// Clear view cache:
+Route::get('/view-clear', function() {
+    Artisan::call('view:clear');
+    return 'View cache has been cleared';
 });
