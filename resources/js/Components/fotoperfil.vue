@@ -12,7 +12,11 @@ const props = defineProps({
     cargo:{
         type: String,
         required : true
+    },
+    info:{
+        type: String,
     }
+
 });
 
 </script>
@@ -29,8 +33,11 @@ const props = defineProps({
         class="text-indigo-900 hover:text-indigo-600 font-bold border-b-0 hover:border-b-4 hover:border-b-indigo-300 transition-all mb-2">
         </a>
     </h2>
+    <h4 class="text-sm md:text-sm text-gray-500">
+        {{ info }}
+    </h4>
 
-    <!-- <ul class="flex flex-row mt-2">
+     <ul class="flex flex-row mt-2">
 
         <li class="mx-2">
         <a href="" target="_blank" aria-label="LinkedIn">
@@ -66,7 +73,7 @@ const props = defineProps({
             </path>
             </svg> </a>
         </li>
-    </ul> -->
+    </ul>
 
     </header>
 </template>

@@ -3,6 +3,12 @@ import Home from '@/Pages/Home.vue';
 import CarruselImage from '@/Components/CarruselImage.vue';
 import TarjetaNoticiaTDetalle from '@/Components/TarjetaNoticiaTDetalle.vue';
 
+defineProps({
+    noticia: {
+        type : Object,
+        required : true
+    }
+})
 </script>
 
 <template>
@@ -12,7 +18,7 @@ import TarjetaNoticiaTDetalle from '@/Components/TarjetaNoticiaTDetalle.vue';
                 <CarruselImage/>
             </div>
             <div class="max-w-6xl mx-auto ">
-                <TarjetaNoticiaTDetalle/>
+                <TarjetaNoticiaTDetalle :noticia="noticia"/>
             </div>
         </div>
     </Home>

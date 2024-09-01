@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@primevue/themes": "^4.0.4",
+        "moment": "^2.30.1",
         "primevue": "^4.0.4",
         "tw-elements": "^2.0.0"
     }

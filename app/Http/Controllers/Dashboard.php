@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Digesto;
+use App\Models\Noticia;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class Dashboard extends Controller
 {
     public function inicio(){
-        return Inertia::render('inicio');
+        $noticias = Noticia::query()->orderBy('id','desc')->limit(6)->get();
+        return Inertia::render('inicio',['noticias' => $noticias]);
     }
 
     public function autoridades(){
@@ -33,18 +36,28 @@ class Dashboard extends Controller
 
 
     public function noticias(){
-        return Inertia::render('noticias');
+        $noticias = Noticia::query()->orderBy('id','desc')->limit(20)->get();
+        return Inertia::render('noticias',['noticias' => $noticias]);
     }
 
     public function contacto(){
         return Inertia::render('contacto');
     }
 
-    public function noticiadetalle(){
-        return Inertia::render('noticiaDetalle');
+    public function noticiadetalle(Request $request){
+
+        $noticia = Noticia::find($request->id);
+        return Inertia::render('noticiaDetalle', ['noticia' => $noticia]);
     }
 
     public function digestos(){
-        return Inertia::render('digesto');
+        $query = Digesto::query();
+
+        if (request('buscar')){
+            $query->where('resumen','like', '%'.request('buscar').'%');
+        }
+
+        $digestos = $query->paginate(10);
+        return Inertia::render('digesto',['digestos' => $digestos]);
     }
 }

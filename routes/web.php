@@ -20,7 +20,7 @@ Route::get('/autoridades', [Dashboard::class,'autoridades'])->name('autoridades'
 Route::get('/servicio', [Dashboard::class,'servicio'])->name('servicio');
 Route::get('/noticias', [Dashboard::class,'noticias'])->name('noticias');
 Route::get('/contacto', [Dashboard::class,'contacto'])->name('contacto');
-Route::get('/noticiadetalle', [Dashboard::class,'noticiadetalle'])->name('noticiadetalle');
+Route::post('/noticiadetalle', [Dashboard::class,'noticiadetalle'])->name('noticiadetalle');
 Route::get('/admin', function () {
     return Inertia::render('Auth/Login');
 })->name('admin');

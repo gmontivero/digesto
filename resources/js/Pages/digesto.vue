@@ -2,6 +2,15 @@
 import Home from '@/Pages/Home.vue';
 import CarruselImage from '@/Components/CarruselImage.vue';
 import ListadoTabla from '@/Components/ListadoTabla.vue';
+
+const props = defineProps({
+    digestos : {
+        type : Object,
+        required : true
+    }
+})
+
+
 </script>
 
 <template>
@@ -11,7 +20,7 @@ import ListadoTabla from '@/Components/ListadoTabla.vue';
                 <CarruselImage/>
             </div>
             <div class="max-w-5xl mx-auto mt-10">
-                <ListadoTabla/>
+                <ListadoTabla :digestos="digestos"/>
             </div>
         </div>
     </Home>

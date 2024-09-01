@@ -9,6 +9,7 @@ const autoridades = [
         id : 1,
         nombre: 'Ramón Allendes',
         cargo: 'Vice Intendente',
+        info: 'Fue consejal, miembro de la camara de Legisladores, miembre de la comision pro festejo de la fiesta de la olivicultura ',
         imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
     },
     {
@@ -48,7 +49,7 @@ const autoridades = [
             <div class="max-w-6xl mx-auto ">
                 <div class="grid grid-cols-3 gap-3 ">
                     <div v-for="autoridad in autoridades" :key="autoridad.id">
-                        <fotoperfil :src="autoridad.imagen" :name="autoridad.nombre" :cargo="autoridad.cargo"/>
+                        <fotoperfil :src="autoridad.imagen" :info="autoridad.info" :name="autoridad.nombre" :cargo="autoridad.cargo"/>
                     </div>
                 </div>
             </div>
