@@ -10,7 +10,10 @@ const autoridades = [
         nombre: 'Ramón Allendes',
         cargo: 'Vice Intendente',
         info: 'Fue consejal, miembro de la camara de Legisladores, miembre de la comision pro festejo de la fiesta de la olivicultura ',
-        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
+        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080',
+        instagram:'',
+        twiter:'',
+        email:''
     },
     {
         id : 1,
