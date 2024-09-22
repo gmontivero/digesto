@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('autoridades_comisiones', function (Blueprint $table) {
+        Schema::create('configuracion', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('autoridad_id');
-            $table->unsignedBigInteger('comision_id');
-            $table->unsignedBigInteger('cargo_id');
+            $table->string('nombre',200);
+            $table->string('imagen');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('autoridades_comisiones');
+        Schema::dropIfExists('configuracion');
     }
 };

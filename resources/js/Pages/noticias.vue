@@ -8,6 +8,9 @@ defineProps({
     noticias: {
         type : Object,
         required : true
+    },
+    imagenes:{
+        type : Object,
     }
 })
 
@@ -17,7 +20,7 @@ defineProps({
     <Home>
         <div class="py-2">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <CarruselImage/>
+                <CarruselImage :imagenes="imagenes"/>
             </div>
             <div class="max-w-6xl mx-auto ">
                 <div class="grid lg:grid-cols-3 lg:gap-3 sm:grid-cols-2 sm:gap-2">

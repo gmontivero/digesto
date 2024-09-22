@@ -2,38 +2,12 @@
 import Home from '@/Pages/Home.vue';
 import CarruselImage from '@/Components/CarruselImage.vue';
 
-const autoridades = [
-    {
-        id : 1,
-        nombre: 'Ramón Allendes',
-        cargo: 'Vice Intendente',
-        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
-    },
-    {
-        id : 1,
-        nombre: 'Juan Perez',
-        cargo: 'Presidente',
-        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
-    },
-    {
-        id : 1,
-        nombre: 'Maria Gonzales',
-        cargo: 'Directora',
-        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
-    },
-    {
-        id : 1,
-        nombre: 'Carlos Diaz',
-        cargo: 'Adjunto',
-        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
-    },
-    {
-        id : 1,
-        nombre: 'Jose Fernandez',
-        cargo: '2° Adjunto',
-        imagen:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxoZWFkc2hvdHxlbnwwfDB8fHwxNjk1ODE3MjEzfDA&ixlib=rb-4.0.3&q=80&w=1080'
-    },
-];
+defineProps({
+
+    imagenes:{
+        type : Object,
+    }
+})
 
 </script>
 
@@ -41,7 +15,7 @@ const autoridades = [
     <Home>
         <div class="py-2">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <CarruselImage/>
+                <CarruselImage :imagenes="imagenes"/>
             </div>
             <div class="max-w-3xl mx-auto ">
                 <main class="flex-grow p-5">

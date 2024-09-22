@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',100);
             $table->unsignedBigInteger('cargo_id');
-            $table->string('info',150);
-            $table->string('imagen');
+            $table->string('info',150)->nullable();
+            $table->string('imagen')->nullable();
+            $table->text('twitter')->nullable();
+            $table->text('email')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('facebook')->nullable();
             $table->timestamps();
         });
     }

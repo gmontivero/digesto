@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('autoridades_bloques', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('autoridades_id');
-            $table->unsignedBigInteger('bloques_id');
-            $table->unsignedBigInteger('cargos_id');
+            $table->unsignedBigInteger('autoridad_id');
+            $table->unsignedBigInteger('bloque_id');
+            $table->unsignedBigInteger('cargo_id');
             $table->timestamps();
         });
     }

@@ -2,13 +2,19 @@
 import Home from '@/Pages/Home.vue';
 import CarruselImage from '@/Components/CarruselImage.vue';
 
+
+defineProps({
+    imagenes:{
+        type : Object,
+    }
+})
 </script>
 
 <template>
     <Home>
         <div class="py-2">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <CarruselImage/>
+                <CarruselImage :imagenes="imagenes"/>
             </div>
             <div class="max-w-3xl mx-auto ">
                 <main class="flex-grow p-5">

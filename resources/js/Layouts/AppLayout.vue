@@ -48,8 +48,33 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <NavLink :href="route('configuracion.index')" :active="route().current('configuracion.*')">
                                     Inicio
+                                </NavLink>
+                            </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('cargo.index')" :active="route().current('cargo.*')">
+                                    Cargos de Autoridades
+                                </NavLink>
+                            </div>
+
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('autoridad.index')" :active="route().current('autoridad.*')">
+                                    Autoridades
+                                </NavLink>
+                            </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('comision.index')" :active="route().current('comision.*')">
+                                    Comisiones
+                                </NavLink>
+                            </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('bloque.index')" :active="route().current('bloque.*')">
+                                    Bloques
                                 </NavLink>
                             </div>
 
@@ -146,8 +171,32 @@ const logout = () => {
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <ResponsiveNavLink :href="route('configuracion.index')" :active="route().current('configuracion.*')">
                            Inicio
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('cargo.index')" :active="route().current('cargo.*')">
+                           Cargos de Autoridades
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('autoridad.index')" :active="route().current('autoridad.*')">
+                           Autoridades
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('comision.index')" :active="route().current('comision.*')">
+                           Comisiones
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('bloque.index')" :active="route().current('bloque.*')">
+                           Bloques
                         </ResponsiveNavLink>
                     </div>
 

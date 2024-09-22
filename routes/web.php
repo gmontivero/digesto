@@ -5,8 +5,13 @@ use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\CargoController;
+use App\Http\Controllers\BloqueController;
 use App\Http\Controllers\DigestoController;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\ComisionController;
+use App\Http\Controllers\AutoridadController;
+use App\Http\Controllers\ConfiguracionController;
 
 
 
@@ -35,6 +40,11 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('/noticia',NoticiaController::class);
     Route::resource('/digesto',DigestoController::class);
+    Route::resource('/autoridad',AutoridadController::class);
+    Route::resource('/cargo',CargoController::class);
+    Route::resource('/comision',ComisionController::class);
+    Route::resource('/bloque',BloqueController::class);
+    Route::resource('/configuracion',ConfiguracionController::class);
 });
 
 
