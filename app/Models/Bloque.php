@@ -12,4 +12,9 @@ class Bloque extends Model
     protected $table = 'bloques';
 
     protected $fillable = ['nombre'];
+
+    public function autoridades()
+    {
+       return $this->belongsToMany(Autoridad::class,AutoridadesBloques::class,'bloque_id','autoridad_id')->withPivot('cargo_id');
+    }
 }

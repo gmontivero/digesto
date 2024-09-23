@@ -6,6 +6,16 @@ const form = useForm({
     'nombre' : ''
 });
 
+const props = defineProps({
+    autoridades : {
+        type : Object,
+        required : true
+    },
+    autoridades_comisiones : {
+        type : Object,
+        required : true
+    }
+})
 
 </script>
 
@@ -19,7 +29,8 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <ComisionForm :form="form" @submit="form.post(route('comision.store'))" />
+                            <ComisionForm :form="form" :autoridades="autoridades" :autoridades_comisiones="autoridades_comisiones"
+                             @submit="form.post(route('comision.store'))" />
                         </div>
                     </div>
                 </div>

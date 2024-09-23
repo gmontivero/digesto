@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Autoridad;
+use App\Models\Bloque;
+use App\Models\Comision;
 use App\Models\Configuracion;
 use App\Models\Digesto;
 use App\Models\Noticia;
@@ -24,9 +26,9 @@ class Dashboard extends Controller
     }
 
     public function comisiones(){
-        $autoridades = Autoridad::with('cargo')->get();
+        $comisiones = Comision::with('autoridades')->get();
         $imagenes = Configuracion::all();
-        return Inertia::render('comisiones',['autoridades' => $autoridades, 'imagenes' => $imagenes]);
+        return Inertia::render('comisiones',['comisiones' => $comisiones, 'imagenes' => $imagenes]);
     }
 
     public function turismo(){
@@ -40,9 +42,9 @@ class Dashboard extends Controller
     }
 
     public function bloques(){
-        $autoridades = Autoridad::with('cargo')->get();
+        $bloques = Bloque::with('autoridades')->get();
         $imagenes = Configuracion::all();
-        return Inertia::render('bloques',['autoridades' => $autoridades, 'imagenes' => $imagenes]);
+        return Inertia::render('bloques',['bloques' => $bloques, 'imagenes' => $imagenes]);
     }
 
 

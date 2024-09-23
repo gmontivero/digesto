@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comision;
+use App\Models\Autoridad;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreComisionRequest;
 use App\Http\Requests\UpdateComisionRequest;
 
@@ -20,7 +22,8 @@ class ComisionController extends Controller
      */
     public function create()
     {
-        return inertia('Comisiones/Create');
+        $autoridades = Autoridad::all();
+        return inertia('Comisiones/Create',['autoridades' => $autoridades]);
     }
 
     /**
@@ -47,7 +50,9 @@ class ComisionController extends Controller
     public function edit(String $id)
     {
         $comision = Comision::find($id);
-        return inertia('Comisiones/Edit',['comision' => $comision]);
+        $autoridades = Autoridad::all();
+        $autoridades_comisiones = DB::table('autoridades_comisiones')->join('autoridades','autoridades_comisiones.autoridad_id','=','autoridades.id')->select('autoridades.nombre','autoridades.id','autoridades_comisiones.id as idt')->get();
+        return inertia('Comisiones/Edit',['comision' => $comision, 'autoridades' => $autoridades,'autoridades_comisiones' => $autoridades_comisiones]);
     }
 
     /**

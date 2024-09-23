@@ -14,6 +14,14 @@ const props  = defineProps({
         type : Boolean,
         required : false,
         default : false
+    },
+    autoridades : {
+        type : Object,
+        required : true
+    },
+    autoridades_comisiones : {
+        type : Object,
+        required : true
     }
 })
 
@@ -37,6 +45,26 @@ defineEmits(['submit']);
             <TextInput id="nombre" v-model="form.nombre" type="text" autocomplete="nombre" class="mt-1 block w-full" />
             <InputError :message="$page.props.errors.nombre" class="mt-2"/>
         </div>
+
+        <div class="col-span-6 sm:col-span-6">
+            <InputLabel for="autoridades" value="Autoridades"  />
+            <select name="autoridades" id="autoridades">
+                <option v-for="autoridad in autoridades" :value="autoridad.id" >{{ autoridad.nombre }}</option>
+            </select>
+        </div>
+
+        <div class="col-span-6 sm:col-span-6">
+            <InputLabel value="Integrantes de la Comisión"  />
+            <ul>
+                <li v-for="autoridad_comision in autoridades_comisiones" :key="autoridad_comision.idt">
+                    {{ autoridad_comision.nombre }}
+                    <span class="text-red"> X </span>
+                </li>
+            </ul>
+        </div>
+
+
+
     </template>
     <template #actions>
         <PrimaryButton>

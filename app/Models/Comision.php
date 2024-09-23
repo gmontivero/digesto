@@ -13,5 +13,8 @@ class Comision extends Model
 
     protected $fillable = ['nombre'];
 
-
+    public function autoridades()
+    {
+       return $this->belongsToMany(Autoridad::class,'autoridades_comisiones','comision_id','autoridad_id')->withPivot('cargo_id');
+    }
 }
