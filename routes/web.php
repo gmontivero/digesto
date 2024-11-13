@@ -71,3 +71,11 @@ Route::get('/view-clear', function() {
     Artisan::call('view:clear');
     return 'View cache has been cleared';
 });
+
+
+// Link storage public
+Route::get('/link-storage', function() {
+    Artisan::call('storage:link');
+    return 'Linked storage with public';
+});
+
