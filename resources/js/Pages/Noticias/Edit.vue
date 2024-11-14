@@ -2,7 +2,7 @@
 import { useForm, Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import NoticiaForm from '@/Components/Noticias/Form.vue';
-
+import { router } from '@inertiajs/vue3'
 const props = defineProps({
     noticia : {
         type : Object,
@@ -11,11 +11,22 @@ const props = defineProps({
 })
 
 const form = useForm({
-    titulo : props.noticia.titulo,
-    encabezado : props.noticia.encabezado,
-    cuerpo : props.noticia.cuerpo,
-    fecha : props.noticia.fecha
+    'titulo' : props.noticia.titulo,
+    'encabezado' : props.noticia.encabezado,
+    'cuerpo' : props.noticia.cuerpo,
+    'fecha' : props.noticia.fecha,
+    'foto' : props.noticia.foto
 })
+
+const envio = (id) => {
+    router.post(`/noticia/${id}`, {_method: 'put',
+    foto: form.foto,
+    titulo: form.titulo,
+    encabezado: form.encabezado,
+    cuerpo: form.cuerpo,
+    fecha: form.fecha
+    })
+}
 
 </script>
 
@@ -29,7 +40,7 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <NoticiaForm :form="form" :updating="true" @submit="form.put(route('noticia.update', noticia.id))" />
+                            <NoticiaForm :form="form" :updating="true" @submit="envio(noticia.id)" />
                         </div>
                     </div>
                 </div>

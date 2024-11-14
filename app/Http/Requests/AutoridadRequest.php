@@ -24,7 +24,7 @@ class AutoridadRequest extends FormRequest
         return [
             'nombre' => ['string','max:200'],
             'info' => ['string','max:500'],
-            'cargo_id' => [],
+            'cargo_id' => ['required'],
             'twitter' => ['max:200'],
             'instagram' => ['max:200'],
             'email' => ['max:200'],

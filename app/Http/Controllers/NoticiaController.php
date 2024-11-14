@@ -14,7 +14,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        $noticias = Noticia::paginate(2);
+        $noticias = Noticia::paginate(5);
         return inertia('Noticias/Index', ['noticias' => $noticias]);
     }
 
@@ -55,6 +55,8 @@ class NoticiaController extends Controller
     public function edit(String $id)
     {
         $noticia = Noticia::find($id);
+
+
         return inertia('Noticias/Edit',['noticia' => $noticia]);
     }
 
@@ -64,7 +66,12 @@ class NoticiaController extends Controller
     public function update(NoticiaRequest $request, string $id)
     {
         $noticia = Noticia::find($id);
-        $noticia->update($request->validated());
+        $fields = $request->validated();
+
+        if ($request->hasFile('foto')){
+            $fields['foto'] = Storage::disk('public')->put('noticias',$request->foto);
+        }
+        $noticia->update($fields);
         return redirect()->route('noticia.index');
     }
 
