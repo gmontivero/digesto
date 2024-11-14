@@ -65,7 +65,11 @@ class AutoridadController extends Controller
     {
 
         $autoridad = Autoridad::find($id);
-        $autoridad->update($request->validated());
+        $fields = $request->validated();
+        if ($request->hasFile('imagen')){
+            $fields['imagen'] = Storage::disk('public')->put('autoridades',$request->imagen);
+        }
+        $autoridad->update($fields);
         return redirect()->route('autoridad.index');
     }
 

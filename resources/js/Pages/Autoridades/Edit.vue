@@ -2,28 +2,46 @@
 import { useForm, Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import AutoridadForm from '@/Components/Autoridades/Form.vue';
+import { router } from '@inertiajs/vue3'
+
 
 const props = defineProps({
-    autoridad : {
-        type : Object,
-        required : true
-    },
     cargos : {
         type : Object,
         required : true
+    },
+    autoridad : {
+        type : Object,
+        required : true
     }
-})
+});
 
 const form = useForm({
-    nombre : props.autoridad.nombre,
-    info : props.autoridad.info,
-    facebook : props.autoridad.facebook,
-    instagram : props.autoridad.instagram,
-    twitter : props.autoridad.twitter,
-    email : props.autoridad.email,
-    cargo_id : props.autoridad.cargo_id,
-    imagen : props.autoridad.imagen
+    'nombre' : props.autoridad.nombre,
+    'info' : props.autoridad.info,
+    'email' : props.autoridad.email,
+    'facebook' : props.autoridad.facebook,
+    'instagram' : props.autoridad.instagram,
+    'twitter' : props.autoridad.twitter,
+    'cargo_id' : props.autoridad.cargo_id,
+    'imagen' : props.autoridad.imagen
+});
+
+const envio = (id) => {
+
+    router.post(`/autoridad/${id}`, {_method: 'put',
+    imagen: form.imagen,
+    nombre: form.nombre,
+    info: form.info,
+    email: form.email,
+    facebook: form.facebook,
+    instagram: form.instagram,
+    twitter: form.twitter,
+    cargo_id: form.cargo_id
 })
+}
+
+
 
 </script>
 
@@ -37,7 +55,7 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <AutoridadForm :form="form" :cargos="cargos" :updating="true" @submit="form.put(route('autoridad.update', autoridad.id))" />
+                            <AutoridadForm :form="form" :cargos="cargos" :updating="true" @submit="envio(autoridad.id)" />
                         </div>
                     </div>
                 </div>
